@@ -15,6 +15,8 @@ import java.util.Date;
  * который старше.
  */
 public interface Person extends Comparable {
+    
+    
 
     /**
      * Возвращает имя человека.
