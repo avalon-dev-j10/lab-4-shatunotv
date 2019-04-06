@@ -7,82 +7,61 @@ package ru.avalon.java.dev.j10.labs;
 
 
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Arrays;
 
 import java.util.Date;
 
 public class Persones implements Person {
  String name;
- Date birthday;
-  
+ Date birthDate;
+ 
+ 
+  private static final SimpleDateFormat dateFormat 
+                   = new SimpleDateFormat("dd/MM/yyyy");
    
     String[] strings = {"9","2","3","5","6","7","8","1","4","10","12","11","13",
         "15","14","17","16","18","20","19"};
     
-public Persones(String name, Date birthday) {
+public Persones(String name, Date birthDate) {
  this.name = name;
- this.birthday = birthday;
+ this.birthDate = birthDate;
      
+     Persones [] persons = new Persones[20];
      
-    Persones [] persons = new Persones[20];
-     
-      // persons [i] = new Persones (String name, Date birthday);
+      //persons [i] = new Persones (String name, Date (birthDate));
       
 
-        persons [0] = new Persones ("Иван", new Date (2001,11,01));
-        persons [1] = new Persones ("Коля", new Date (2002,10,01));        
-        persons [2] = new Persones ("Миша", new Date (2003,10,01));         
-        persons [3] = new Persones ("Вася", new Date (2004,10,01));         
-        persons [4] = new Persones ("Коля", new Date (2005,10,01));         
-        persons [5] = new Persones ("Коля", new Date (2006,10,01));        
-        persons [6] = new Persones ("Коля", new Date (2007,10,01)); 
-        persons [7] = new Persones ("Коля", new Date (2008,10,01)); 
-        persons [8] = new Persones ("Коля", new Date (2009,10,01)); 
-        persons [9] = new Persones ("Коля", new Date (2010,01,01)); 
-        persons [1] = new Persones ("Коля", new Date (2002,10,01));        
-        persons [2] = new Persones ("Миша", new Date (2003,10,01));         
-        persons [3] = new Persones ("Вася", new Date (2004,10,01));         
-        persons [4] = new Persones ("Коля", new Date (2005,10,01));         
-        persons [5] = new Persones ("Коля", new Date (2006,10,01));        
-        persons [6] = new Persones ("Коля", new Date (2007,10,01)); 
-        persons [7] = new Persones ("Коля", new Date (2008,10,01)); 
-        persons [8] = new Persones ("Коля", new Date (2009,10,01)); 
-        persons [9] = new Persones ("Коля", new Date (2010,04,01)); 
-        persons [10] = new Persones ("Коля", new Date (2011,06,01)); 
+        persons [0] = new Persones ("Иван", new Date((long)(12/02/2001)));
+        persons [1] = new Persones ("Коля", new Date((long)(25/05/1999)));        
+        persons [2] = new Persones ("Миша", new Date((long)(21/07/1984)));         
+        persons [3] = new Persones ("Вася", new Date((long)(12/01/2004)));         
+        persons [4] = new Persones ("Коля", new Date((long)(22/12/1896)));         
+        persons [5] = new Persones ("Коля", new Date((long)(25/11/2002)));        
+        persons [6] = new Persones ("Коля", new Date((long)(8/04/2012))); 
+        persons [7] = new Persones ("Коля", new Date((long)(9/01/2014))); 
+        persons [8] = new Persones ("Коля", new Date((long)(01/02/2011))); 
+        persons [9] = new Persones ("Коля", new Date((long)(03/02/2013))); 
+        persons [1] = new Persones ("Коля", new Date((long)(07/9/1997)));      
+        persons [2] = new Persones ("Миша", new Date((long)(05/02/2001)));         
+        persons [3] = new Persones ("Вася", new Date((long)(06/8/2000)));       
+        persons [4] = new Persones ("Коля", new Date((long)(8/10/2001)));       
+        persons [5] = new Persones ("Коля", new Date((long)(11/02/2008)));        
+        persons [6] = new Persones ("Коля", new Date((long)(12/03/2006))); 
+        persons [7] = new Persones ("Коля", new Date((long)(15/05/2004))); 
+        persons [8] = new Persones ("Коля", new Date((long)(18/02/2003))); 
+        persons [9] = new Persones ("Коля", new Date((long)(15/04/1995))); 
+        persons [10] = new Persones ("Коля", new Date((long)(01/02/1996))); 
 
-        
-        Arrays.sort(persons);
-        
 }  
-
-
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-        
+     
     public String getName() {
         return name;
     }
-
-    @Override
     public Date getBirthDate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
-   
-    
-
-
-  
-                
+        return birthDate;
+   }             
 }
 
 

@@ -13,12 +13,24 @@ public class Main {
        
             
             String[] strings = new String[20];
+            
             Persones [] persons = new Persones[20];
-        System.out.println(Arrays.toString(strings));              
-        System.out.println(Arrays.toString(persons));  
+            
+        Arrays.sort(persons);
+
+        for (Persones s:persons){
+            System.out.println(s);
+        }
         
-       // System.out.print(strings[i]);
-      //  System.out.print (persons[j]);
+        Arrays.sort(strings);
+        
+        for (String g:strings){
+            System.out.println(g);
+        
+        //System.out.println(Arrays.toString(strings));              
+       // System.out.println(Arrays.toString(persons));  
+        
+
         
             
 	    /*
@@ -92,4 +104,5 @@ public class Main {
          */
         //sort.sort(strings, comparator);
     }
+}
 }
