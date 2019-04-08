@@ -1,7 +1,7 @@
 package ru.avalon.java.dev.j10.labs;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
+
 
 public class Main {
    // String[] strings = null;
@@ -10,29 +10,41 @@ public class Main {
    // Comparator comparator = null;
     
     public static void main(String[] args) {
-       
+        
+
+        String[] strings = new String[20];
             
-            String[] strings = new String[20];
+            System.out.println("несортированный" + Arrays.toString(strings));
             
-            Persones [] persons = new Persones[20];
+        Persones [] persons = new Persones[20];
             
-        Arrays.sort(persons);
+            System.out.println("несортированный" + Arrays.toString(persons));
+            
+            
+        Arrays.sort(persons, new Comparatorreal<Persones>());
 
         for (Persones s:persons){
-            System.out.println(s);
+            System.out.println("сортированный" + s);
         }
         
         Arrays.sort(strings);
         
         for (String g:strings){
-            System.out.println(g);
-        
-        //System.out.println(Arrays.toString(strings));              
-       // System.out.println(Arrays.toString(persons));  
-        
-
-        
             
+            System.out.println("сортированный" + g);
+        }
+        Arrays.sort(persons, Collections.reverseOrder());
+        
+        for(int i = 0; i <  persons.length; i++){
+            
+            System.out.println("сортированный в обратную" + persons);
+        }
+        Arrays.sort(strings, Collections.reverseOrder());
+        
+        for (String h:strings){
+            
+            System.out.println("сортированный в обратную" + h);
+        }    
 	    /*
 	     * TODO(Студент): Проинициализируйте массив persons
 	     *
@@ -105,4 +117,5 @@ public class Main {
         //sort.sort(strings, comparator);
     }
 }
-}
+
+

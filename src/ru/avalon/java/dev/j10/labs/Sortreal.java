@@ -5,6 +5,7 @@
  */
 package ru.avalon.java.dev.j10.labs;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -14,14 +15,24 @@ import java.util.Comparator;
 public class Sortreal implements Sort {
   
 
-    @Override
-    public void sort(Object[] array) {
     
+    public void sort(Object[] array) {
+        for(int i=0;i<array.length; i++){
+            for(int j=0;j<array.length; j++){
+                if(array[i].equals(array[j])){
+                    Object temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                } else {
+                }
+            }
+        }
     }
+    
 
     @Override
     public void sort(Comparable[] array) {
-   
+        Arrays.sort(array);
     }
 
     @Override
@@ -39,19 +50,3 @@ public class Sortreal implements Sort {
     
 
    
-/*
-//реализуем метод compareTo интерфейса Comparable
-    public int compareTo(User o) {
-
-//используем метод compareTo из класса String для сравнения имен
-        int result = this.name.compareTo(o.name);
-
-//если имена одинаковые -  сравниваем возраст,
-используя метод compareTo из класса Integer
-
-        if (result == 0) {
-            result = this.age.compareTo(o.age);
-        }
-        return result;
-    }
-*/

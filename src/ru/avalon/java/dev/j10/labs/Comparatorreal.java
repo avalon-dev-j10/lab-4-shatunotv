@@ -5,34 +5,61 @@
  */
 package ru.avalon.java.dev.j10.labs;
 import java.util.Comparator;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
-import java.lang.Iterable;
 
 
-public class Comparatorreal implements Comparator{ 
-    Comparatorreal Comparator = new Comparatorreal(); 
+
+public class Comparatorreal<Persones> implements Comparator<Persones>{ 
+   Comparatorreal Comparator = new Comparatorreal(); 
    
 
 
     public int compare(Persones o1, Persones o2) {
-    return o1.getName().compareTo(o2.getName());}
+    
+    
+            // Два объекта null считаются равными.
+        if (o1 == null && o2 == null) {
+            return 0;
+        }
+        // Если o1 является null, считается что o2 больше
+        if (o1 == null) {
+            return -1;
+        }
+        // Если o2 является null, считается что o1 больше.
+        if (o2 == null) {
+            return 1;
+        }
+        // Правило:
+        // Распределить по возрастанию возраста.
+        int value = o1.getBirthDate() - o2.getBirthDate();
+        if (value != 0) {
+            return value;
+        }
+        // Если возраст равен, то сравнить fullName.
+        // Сравнить по Alphabet (алфавиту).
+        value = o1.getName().compareTo(o2.getName());
+        return value;
+    }
 
     
-    public Comparator reversed(Persones o1, Persones o2) {
-     return Comparator.super.reversed();}
-
-    @Override
-    public int compare(Object o1, Object o2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Comparator<Persones> reversed(Persones o1, Persones o2) {
+     return Comparator.super.reversed();
+     
     }
+    public static class StringComparator<String> implements Comparator<String> {
+        
+     public Comparator reversed(String p1, String p2) {
+     return Comparator.super.reversed();
+     }
+
+     
+    }  
+    
+}
 
 
 
    
 
-}
+
 
    
