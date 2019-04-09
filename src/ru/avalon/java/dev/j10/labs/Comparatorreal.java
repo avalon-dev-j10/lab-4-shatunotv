@@ -28,7 +28,7 @@ public class Comparatorreal<Persones> implements Comparator<Persones>{
         if (o2 == null) {
             return 1;
         }
-        // Правило:
+        
         // Распределить по возрастанию возраста.
         int value = o1.getBirthDate() - o2.getBirthDate();
         if (value != 0) {
