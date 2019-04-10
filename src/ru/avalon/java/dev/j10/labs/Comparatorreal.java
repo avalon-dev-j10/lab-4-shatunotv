@@ -5,10 +5,14 @@
  */
 package ru.avalon.java.dev.j10.labs;
 import java.util.Comparator;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
 
 
 
-public class Comparatorreal<Persones> implements Comparator<Persones>{ 
+public class Comparatorreal implements Comparator<Persones>{ 
    Comparatorreal Comparator = new Comparatorreal(); 
    
 
@@ -30,7 +34,7 @@ public class Comparatorreal<Persones> implements Comparator<Persones>{
         }
         
         // Распределить по возрастанию возраста.
-        int value = o1.getBirthDate() - o2.getBirthDate();
+        int value = (int)(o1.getBirthDate().getTime() - o2.getBirthDate().getTime());
         if (value != 0) {
             return value;
         }
@@ -41,25 +45,55 @@ public class Comparatorreal<Persones> implements Comparator<Persones>{
     }
 
     
-    public Comparator<Persones> reversed(Persones o1, Persones o2) {
-     return Comparator.super.reversed();
+    public Comparator reversed(Persones o1, Persones o2) {
+        return Comparator.super.reversed();
      
     }
-    public static class StringComparator<String> implements Comparator<String> {
+}
+
+class StringComparator implements Comparator<String> {
         
      public Comparator reversed(String p1, String p2) {
      return Comparator.super.reversed();
      }
 
-     
-    }  
-    
-}
+    @Override
+    public int compare(String o1, String o2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public Comparator<String> reversed() {
+        return Comparator.super.reversed(); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public Comparator<String> thenComparing(Comparator<? super String> other) {
+        return Comparator.super.thenComparing(other); //To change body of generated methods, choose Tools | Templates.
+    }
 
-   
+    @Override
+    public <U> Comparator<String> thenComparing(Function<? super String, ? extends U> keyExtractor, Comparator<? super U> keyComparator) {
+        return Comparator.super.thenComparing(keyExtractor, keyComparator); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public <U extends Comparable<? super U>> Comparator<String> thenComparing(Function<? super String, ? extends U> keyExtractor) {
+        return Comparator.super.thenComparing(keyExtractor); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public Comparator<String> thenComparingInt(ToIntFunction<? super String> keyExtractor) {
+        return Comparator.super.thenComparingInt(keyExtractor); //To change body of generated methods, choose Tools | Templates.
+    }
 
-   
+    @Override
+    public Comparator<String> thenComparingLong(ToLongFunction<? super String> keyExtractor) {
+        return Comparator.super.thenComparingLong(keyExtractor); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Comparator<String> thenComparingDouble(ToDoubleFunction<? super String> keyExtractor) {
+        return Comparator.super.thenComparingDouble(keyExtractor); //To change body of generated methods, choose Tools | Templates.
+    }
+} 
