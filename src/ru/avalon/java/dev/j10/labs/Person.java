@@ -14,7 +14,9 @@ import java.util.Date;
  * Из двух людей с одним и тем же именем больше будет тот,
  * который старше.
  */
-public interface Person extends Comparable {
+public interface Person {
+    
+    
 
     /**
      * Возвращает имя человека.
